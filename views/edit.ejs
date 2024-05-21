@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div class="main p-4 w-screen  bg-zinc-900 overflow-x-hidden snap-none">
+        <div class="flex justify-end w-full h-8">
+            <button class="h-full bg-red-900 w-20 rounded"><a href="/logout">logout</a></button>
+        </div>
+         <h1 class="text-white"><b>Hello, <%= user.name %> 👋</b></h1>
+         <span class="text-white">You can Edit your post</span> 
+         <br>
+         <form class="mt-4" action="/edit/<%= post._id %>" method="post">
+            <textarea class="pl-2 outline-0 bg-zinc-500 rounded" name="content" placeholder="Create post......." rows="5" cols="40"></textarea> <br>
+            <button class="w-40 h-10 bg-yellow-900 text-black-900 rounded-lg" type="submit">update Post</button>
+        </form>
+      
+
+</body>
+</html>

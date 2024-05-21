@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+</head>
+<body>
+         
+    <% allposts.forEach(element => {  %>
+        <div class="ml-2 mb-2 p-2 post w-80 h-40 bg-zinc-500 rounded-md">
+            <p class="text-blue-900">@<%= element.user.username %></p>
+            <span><%= element.content %></span>
+            <p><%=element.like.length %></p>
+            <div class="btn flex">
+                <a class="text-blue-900" href="/like/<%= element._id%>">
+                   <%= element.like.indexOf(logeduser._id) === -1 ? "Like" : "Unlike" %>
+                   </a>
+                <a class="ml-4 text-blue-900 disabled" href="/edit/<%= element._id %>">Edit</a>
+            </div>
+        </div>
+   <% }); %>
+</body>
+<script></script>
+</html>

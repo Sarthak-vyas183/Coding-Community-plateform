@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div class="main p-4 w-screen  bg-zinc-900 overflow-x-hidden snap-none">
+        <div class="flex justify-end w-full h-8">
+            <button class="h-full bg-red-900 w-20 rounded"><a href="/logout">logout</a></button>
+        </div>
+      <section class="flex item-start gap-3">
+         <div class="w-10 h-10 object-cover rounded-md overflow-hidden"> <a href="/profileupload"><img class="w-full h-full" src="./images/<%=loguserData.profilepic %>" alt=""></a></div>
+        
+         <h1 class="text-white"><b>Hello, <%= loguserData.name %> 👋</b></h1>
+      </section>
+         <span class="text-white">you can create a post</span> 
+         <br>
+         <form class="mt-4" action="/post" method="post">
+            <textarea class="pl-2 outline-0 bg-zinc-500 rounded" name="content" placeholder="Create post......." rows="5" cols="40"></textarea> <br>
+           
+            <button class="w-40 h-10 bg-blue-900 rounded-lg" type="submit">Create Post</button>
+        </form>
+        <h1 class="text-white">your posts :</h1> <br>
+        <div class=" text-white mt-20">
+            <div class=" flex flex-wrap p-2 post w-full h-40 rounded-md">
+              
+              <% posts.forEach(element => {  %>
+                  <div class="ml-2 mb-2 p-2 post w-80 min-h-40 bg-zinc-500 rounded-md">
+                      <p class="text-blue-900">@<%= loguserData.username %></p>
+                      <span><%= element.content %></span>
+                      <p><%=element.like.length %></p>
+                      <div class="btn flex">
+                          <a class="text-blue-900" href="/like/<%= element._id%>">
+                             <%= element.like.indexOf(loguserData._id) === -1 ? "Like" : "Unlike" %>
+                             </a>
+                             
+                          <a class="ml-4 text-blue-900 disabled" href="/edit/<%= element._id %>">Edit</a>
+                      </div>
+                  </div>
+             <% }); %>
+          
+        </div>
+  
+      </div>
+
+</body>
+</html>

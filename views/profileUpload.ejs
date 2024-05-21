@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+     <div class=" flex justify-center w-screen h-screen bg-zinc-900 p-4">
+        <form class=" flex justify-center items-center text-dark w-1/2 h-full bg-zinc-500 " enctype="multipart/form-data" action="/upload" method="post">
+         <div>
+            <label>Upload Img :</label><br>
+            <input class="mb-2 mt-2 rounded" type="file" name="image"><br>
+            <input class="bg-blue-500 rounded h-8 w-24" type="submit" value="Upload Image">
+         </div>
+       </form>
+     </div>
+</body>
+</html>
